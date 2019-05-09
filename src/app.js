@@ -1,7 +1,15 @@
 const http = require('http');
 const server = http.createServer((req, res) => {
-	// prints log in terminal when visiting localhost:3000
-	console.log('incomming requests');
+	console.log(req.url, req.method, req.headers);
+
+	res.setHeader('Content-Type', 'text/html');
+
+	res.write('<html>');
+	res.write('<head><title>Hello</title></head>');
+	res.write('<body><h1>Hello from localhost:3000</h1></body>');
+	res.write('</html>');
+
+	res.end();
 });
 
 server.listen(3000);
