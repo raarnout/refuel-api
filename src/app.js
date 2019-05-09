@@ -24,23 +24,25 @@ const server = http.createServer((req, res) => {
 		})
 
 		// Data is comming in like a stream of data.
-		// The incomming requests-stream is a ongoing process.
+		// The incomming request-stream is a ongoing process.
 		// The request is broken down in chunks.
 		// We can't start working arbitrary on these single chunks.
 		// If we want to work on these chunks, we need buffers.
 		// listen to 'end' event. When this event is fired when it's done parsing the incomming request.
-		req.on('end', () => {
+		return req.on('end', () => {
 			// at this point all chunks are loaded in.
 			const parsedBody = Buffer.concat(body).toString();
 			const message = parsedBody.split('=')[1];
-			// store message in a file.
-			fs.writeFileSync('./dist/message.txt', message);
+	
+			// writeFileSync blocks code-execution, so we use writeFile
+			fs.writeFile('./dist/message.txt', message, (err) => {
+				if (err) {console.log(err)};
+				// redirect to '/' only when we are done parsing the request.
+				res.statusCode = 302;
+				res.setHeader('Location', '/');
+				return res.end();
+			});
 		})
-
-		// redirect to '/'
-		res.statusCode = 302;
-		res.setHeader('Location', '/');
-		return res.end();
 	}
 
 	res.setHeader('Content-Type', 'text/html');
