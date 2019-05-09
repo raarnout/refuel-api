@@ -19,12 +19,5 @@
   "homepage": "https://github.com/raarnout/refuel#readme",
   "devDependencies": {
     "nodemon": "^1.19.0"
-  },
-  "nodemonConfig": {
-    "ignore": [
-      "test/*",
-      "docs/*"
-    ],
-    "delay": "2500"
   }
 }
