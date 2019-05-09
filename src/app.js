@@ -35,8 +35,11 @@ const server = http.createServer((req, res) => {
 			const message = parsedBody.split('=')[1];
 	
 			// writeFileSync blocks code-execution, so we use writeFile
-			fs.writeFile('./dist/message.txt', message, (err) => {
-				if (err) {console.log(err)};
+			fs.writeFile('message.txt', message, (err) => {
+				if (err) {
+					console.log(err)
+				};
+				
 				// redirect to '/' only when we are done parsing the request.
 				res.statusCode = 302;
 				res.setHeader('Location', '/');
