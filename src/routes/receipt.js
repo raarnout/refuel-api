@@ -1,3 +1,7 @@
+// NodeJS Core Modules
+const path = require('path');
+
+// NPM Modules
 const express = require('express');
 
 const router = express.Router();
@@ -5,15 +9,20 @@ const router = express.Router();
 /**
  * handle incomming GET requests on /admin/add-receipt route 
  **/
+router.get('/', (req, res, next) => {
+    // __dirname is absolute path to the project folder
+    // we use path.join cause this works on both systems linux and windows systems
+    // linux path example: '/user/produces'  
+    // windows path example: '\user\products' 
+    res.sendFile(path.join(__dirname, '../', 'views', 'receipts.html'));
+})
+
 router.get('/add', (req, res, next) => {
-    res.send(`
-    <form action="/receipt/add" method="POST">
-        <label>trip mileage: </label> <input type="text" name="trip-mileage"><br>
-        <label>volume: </label>  <input type="text" name="volume"><br>
-        <label>cost: </label>    <input type="text" name="cost"><br>
-        <button type="submit">send receipt</button>
-    </form>
-        `);
+    // __dirname is absolute path to the project folder
+    // we use path.join cause this works on both systems linux and windows systems
+    // linux path example: '/user/produces'  
+    // windows path example: '\user\products' 
+    res.sendFile(path.join(__dirname, '../', 'views', 'add-receipt.html'));
 })
 
 /**
@@ -21,7 +30,7 @@ router.get('/add', (req, res, next) => {
  **/
 router.post('/add', (req, res, next) => {
     console.log(req.body);
-    res.redirect('/receipt/add');
+    res.redirect('/receipt');
 })
 
 module.exports = router;

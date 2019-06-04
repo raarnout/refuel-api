@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Receipt</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/receipt">All Receipts</a></li>
+                <li><a href="/receipt/add">Add Receipt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <form action="/receipt/add" method="POST">
+            <label>trip mileage: </label> <input type="text" name="trip-mileage"><br>
+            <label>volume: </label> <input type="text" name="volume"><br>
+            <label>cost: </label> <input type="text" name="cost"><br>
+            <button type="submit">send receipt</button>
+        </form>
+    </main>
+
+</body>
+
+</html>
