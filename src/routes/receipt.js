@@ -4,22 +4,23 @@ const path = require('path');
 // NPM Modules
 const express = require('express');
 
+// App modules
+const rootDir = require('../util/path');
+
 const router = express.Router();
 
 /**
  * handle incomming GET requests on /admin/add-receipt route 
  **/
 router.get('/', (req, res, next) => {
-    // __dirname is absolute path to the project folder
-    // we use path.join cause this works on both systems linux and windows systems
+    // we use path.join cause this works on both systems linux and windows
     // linux path example: '/user/produces'  
     // windows path example: '\user\products' 
-    res.sendFile(path.join(__dirname, '../', 'views', 'receipts.html'));
+    res.sendFile(path.join(rootDir, 'views', 'receipts.html'));
 })
 
 router.get('/add', (req, res, next) => {
-    // __dirname is absolute path to the project folder
-    // we use path.join cause this works on both systems linux and windows systems
+    // we use path.join cause this works on both systems linux and windows
     // linux path example: '/user/produces'  
     // windows path example: '\user\products' 
     res.sendFile(path.join(__dirname, '../', 'views', 'add-receipt.html'));
