@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
+const rootDir = require('./util/path');
+
 const receiptRoutes = require('./routes/receipt');
 
 /** 
@@ -13,15 +15,19 @@ const receiptRoutes = require('./routes/receipt');
 **/
 app.use(bodyParser.urlencoded({extended: false}));
 
+
+// add static middleware from 'public' folder
+app.use(express.static(path.join(rootDir, 'public')));
+
 /** 
  * import outsourced routes.
 **/
 app.use('/receipt', receiptRoutes);
 
 
-// handles rout
+// handles error route
 app.use((req, res, next) => {
-	res.status(404).sendFile(path.join(__dirname, '/views', '404.html'));
+	res.status(404).sendFile(path.join(rootDir, 'views', '404.html'));
 })
 
 app.listen(3000);
