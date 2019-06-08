@@ -7,6 +7,7 @@ const app = express();
 
 const rootDir = require('./util/path');
 
+const dashboardRoutes = require('./routes/dashboard');
 const receiptRoutes = require('./routes/receipt');
 
 /** 
@@ -22,6 +23,7 @@ app.use(express.static(path.join(rootDir, 'public')));
 /** 
  * import outsourced routes.
 **/
+app.use('/dashboard', dashboardRoutes);
 app.use('/receipt', receiptRoutes);
 
 
