@@ -1,0 +1,29 @@
+<%- include('includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/receipt.css">
+</head>
+
+<body>
+    <%- include('includes/navigation.ejs') %>
+
+    <main>
+        <form class="receipt-form" action="/admin/add-receipt" method="POST">
+            <div class="form-control">
+                <label>Trip distance</label>
+                <input type="text" name="distance" id="distance" required="yes">
+            </div>
+
+            <div class="form-control">
+                <label>Volume in liters</label>
+                <input type="text" name="volume" id="volume" required="yes">
+            </div>
+
+            <div class="form-control">
+                <label>Price per liter in Euro's</label>
+                <input type="text" name="pricePerLiter" id="pricePerLiter" required="yes">
+            </div>
+
+            <button type="submit">send receipt</button>
+        </form>
+    </main>
+
+<%- include('includes/end.ejs') %>

@@ -6,9 +6,13 @@ const bodyParser = require('body-parser');
 const app = express();
 
 const rootDir = require('./util/path');
+const adminData = require('./routes/admin');
+const dashboardData = require('./routes/dashboard');
 
-const dashboardRoutes = require('./routes/dashboard');
-const receiptRoutes = require('./routes/receipt');
+// set the global 'view enige' to 'ejs'
+app.set('view engine', 'ejs')
+// tell express that the views can be found in the 'views' folder.
+app.set('views', path.join(rootDir, 'views'));
 
 /** 
  * add middleware for all incomming request
@@ -16,20 +20,23 @@ const receiptRoutes = require('./routes/receipt');
 **/
 app.use(bodyParser.urlencoded({extended: false}));
 
-
 // add static middleware from 'public' folder
 app.use(express.static(path.join(rootDir, 'public')));
 
 /** 
  * import outsourced routes.
 **/
-app.use('/dashboard', dashboardRoutes);
-app.use('/receipt', receiptRoutes);
+app.use('/', dashboardData);
+app.use('/admin', adminData.router);
 
 
 // handles error route
 app.use((req, res, next) => {
-	res.status(404).sendFile(path.join(rootDir, 'views', '404.html'));
+	res.status(404).render('404', { 
+		path: '',
+		pageTitle: 'Page not Found',
+		receipts: adminData.receipts
+	});
 })
 
 app.listen(3000);

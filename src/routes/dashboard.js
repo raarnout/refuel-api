@@ -7,15 +7,17 @@ const router = express.Router();
 
 // App modules
 const rootDir = require('../util/path');
+const adminData = require('./admin');
 
 /**
  * handle incomming GET requests on /admin/add-receipt route 
  **/
 router.get('/', (req, res, next) => {
-    // we use path.join cause this works on both systems linux and windows
-    // linux path example: '/user/produces'  
-    // windows path example: '\user\products' 
-    res.sendFile(path.join(rootDir, 'views', 'dashboard.html'));
+    res.render('dashboard', { 
+        path: '/',
+        pageTitle: 'Dashboard',
+        receipts: adminData.receipts
+	});
 })
 
 module.exports = router;

@@ -1,0 +1,19 @@
+<%- include('includes/head.ejs') %>
+</head>
+
+<body>
+    <%- include('includes/navigation.ejs') %>
+
+    <main>
+        <% if(receipts.length > 0) { %>
+            <% for (let receipt of receipts) { %>
+                <article>
+                    <%= receipt.volume %>
+                </article>
+            <% } %>
+        <% } else { %>
+            <h1>No receipts found</h1>
+        <% } %>
+    </main>
+
+<%- include('includes/end.ejs') %>
