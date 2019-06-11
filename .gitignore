@@ -1,6 +1,5 @@
 node_modules/
 dist/
-data/
 
-message.txt
+src/data/receipts.json
 refuel.code-workspace
