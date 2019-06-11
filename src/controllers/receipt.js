@@ -1,27 +1,24 @@
-const receipts = [];
+const Receipt = require('../models/receipt')
 
 exports.getAddReceipt = (req, res, next) => {
-    res.render('add-receipt', { 
+    res.render('add-receipt', {
         path: '/admin/add-receipt',
         pageTitle: 'Add Receipt'
-	});
+    });
 };
 
 exports.postAddReceipt = (req, res, next) => {
     const body = req.body;
-    console.log(`body,`, JSON.stringify(body));
-    receipts.push({
-        distance: body.distance,
-        volume: body.volume,
-        pricePerLiter: body.pricePerLiter
-    })
+    const receipt = new Receipt(body.tripDistance, body.totalLiters, body.pricePerLiter);
+    receipt.save();
     res.redirect('/');
 };
 
 exports.getProducts = (req, res, next) => {
-    res.render('dashboard', { 
+    const receipts = Receipt.fetchAll();
+    res.render('dashboard', {
         path: '/',
         pageTitle: 'Dashboard',
         receipts: receipts
-	});
+    });
 };
