@@ -14,7 +14,7 @@ exports.postAddReceipt = (req, res, next) => {
     res.redirect('/');
 };
 
-exports.getProducts = (req, res, next) => {
+exports.getReceipts = (req, res, next) => {
     const receipts = Receipt.fetchAll();
     res.render('dashboard', {
         path: '/',
