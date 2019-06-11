@@ -1,6 +1,17 @@
 const fs = require('fs');
 const path = require('path');
 const rootDir = require('../util/rootDir');
+const p = path.join(rootDir, 'data', 'receipts.json');
+
+const getReceiptsFromFile = callback => {
+    fs.readFile(p, (error, fileContent) => {
+        let receipts = [];
+        if (!error) {
+            receipts = JSON.parse(fileContent);
+        }
+        callback(receipts);
+    });
+}
 
 module.exports = class Receipt {
     constructor(tripDistance, totalLiters, pricePerLiter) {
@@ -10,30 +21,18 @@ module.exports = class Receipt {
     }
 
     save() {
-        const p = path.join(rootDir, 'data', 'receipts.json');
-        fs.readFile(p, (error, fileContent) => {
-            let receipts = [];
-
-            if (!error) {
-                receipts = JSON.parse(fileContent);
-            }
+        getReceiptsFromFile(receipts => {
             receipts.push(this);
-
             fs.writeFile(p, JSON.stringify(receipts), (error) => {
-                console.log(error);
+                if (error) {
+                    console.log(error);
+                }
             });
-        });
+        })
     }
 
     // 'static' functions can called on class without creating instance first.
     static fetchAll(callback) {
-        const p = path.join(rootDir, 'data', 'receipts.json');
-        fs.readFile(p, (error, fileContent) => {
-            let receipts = [];
-            if (!error) {
-                receipts = JSON.parse(fileContent);
-            }
-            callback(receipts);
-        });
+        getReceiptsFromFile(callback);
     }
 }
