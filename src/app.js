@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 const rootDir = require('./util/path');
-const adminData = require('./routes/admin');
+const adminRoutes = require('./routes/admin');
 const dashboardData = require('./routes/dashboard');
 
 // set the global 'view enige' to 'ejs'
@@ -27,15 +27,14 @@ app.use(express.static(path.join(rootDir, 'public')));
  * import outsourced routes.
 **/
 app.use('/', dashboardData);
-app.use('/admin', adminData.router);
+app.use('/admin', adminRoutes);
 
 
 // handles error route
 app.use((req, res, next) => {
 	res.status(404).render('404', { 
 		path: '',
-		pageTitle: 'Page not Found',
-		receipts: adminData.receipts
+		pageTitle: 'Page not Found'
 	});
 })
 
