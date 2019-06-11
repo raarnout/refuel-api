@@ -15,10 +15,11 @@ exports.postAddReceipt = (req, res, next) => {
 };
 
 exports.getReceipts = (req, res, next) => {
-    const receipts = Receipt.fetchAll();
-    res.render('dashboard', {
-        path: '/',
-        pageTitle: 'Dashboard',
-        receipts: receipts
-    });
+    const receipts = Receipt.fetchAll((receipts) => {
+        res.render('dashboard', {
+            path: '/',
+            pageTitle: 'Dashboard',
+            receipts: receipts
+        });
+    })
 };

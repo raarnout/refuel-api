@@ -26,13 +26,14 @@ module.exports = class Receipt {
     }
 
     // 'static' functions can called on class without creating instance first.
-    static fetchAll() {
+    static fetchAll(callback) {
         const p = path.join(rootDir, 'data', 'receipts.json');
         fs.readFile(p, (error, fileContent) => {
-            if (error) {
-                return [];
+            let receipts = [];
+            if (!error) {
+                receipts = JSON.parse(fileContent);
             }
-            return JSON.parse(fileContent);
+            callback(receipts);
         });
     }
 }
