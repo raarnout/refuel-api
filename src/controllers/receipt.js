@@ -2,7 +2,7 @@ const Receipt = require('../models/receipt')
 
 exports.getAddReceipt = (req, res, next) => {
     res.render('add-receipt', {
-        path: '/admin/add-receipt',
+        path: '/user/add-receipt',
         pageTitle: 'Add Receipt'
     });
 };
