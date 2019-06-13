@@ -9,17 +9,17 @@
         <form class="receipt-form" action="/user/add-receipt" method="POST">
             <div class="form-control">
                 <label>Ritafstand in kilometers:</label>
-                <input type="text" name="tripDistance" id="tripDistance" required="yes" pattern="[0-9]+" oninvalid="setCustomValidity('Alleen nummers zijn toegestaan.')">
+                <input type="text" name="tripDistance" id="tripDistance" required="yes" pattern="[0-9]+" autocomplete="off" oninvalid="setCustomValidity('Alleen nummers zijn toegestaan.')">
             </div>
 
             <div class="form-control">
                 <label>Getankt volume in liters:</label>
-                <input type="text" name="totalLiters" id="totalLiters" required="yes" pattern="[0-9]+" oninvalid="setCustomValidity('Alleen nummers zijn toegestaan.')">
+                <input type="text" name="totalLiters" id="totalLiters" required="yes" pattern="[0-9]+" autocomplete="off" oninvalid="setCustomValidity('Alleen nummers zijn toegestaan.')">
             </div>
 
             <div class="form-control">
                 <label>Prijs per liter in euro's:</label>
-                <input type="text" name="pricePerLiter" id="pricePerLiter" required="yes" pattern="[0-9]+" oninvalid="setCustomValidity('Alleen nummers zijn toegestaan.')">
+                <input type="text" name="pricePerLiter" id="pricePerLiter" required="yes" pattern="[0-9]+" autocomplete="off" oninvalid="setCustomValidity('Alleen nummers zijn toegestaan.')">
             </div>
 
             <button type="submit">Bon Toevoegen</button>
