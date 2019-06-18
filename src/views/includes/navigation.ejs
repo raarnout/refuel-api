@@ -2,7 +2,10 @@
     <nav class="main-header__nav">
         <ul class="main-header__receipt-list">
             <li class="main-header__receipt"><a href="/" class="<%= path === '/' ? 'active' : '' %>">Dashboard</a></li>
-            <li class="main-header__receipt"><a href="admin/add-receipt" class="<%= path === 'admin/add-receipt' ? 'active' : '' %>">Add Receipt</a></li>
+            <li class="main-header__receipt"><a href="/receipts" class="<%= path === '/receipts' ? 'active' : '' %>">Receipts</a></li>
+            <li class="main-header__receipt"><a href="/cart" class="<%= path === '/cart' ? 'active' : '' %>">Cart</a></li>
+            <li class="main-header__receipt"><a href="/admin/add-receipt" class="<%= path === '/admin/add-receipt' ? 'active' : '' %>">Add Receipt</a></li>
+            <li class="main-header__receipt"><a href="/admin/receipts" class="<%= path === '/admin/receipts' ? 'active' : '' %>">Admin receipts</a></li>
         </ul>
     </nav>
 </header>

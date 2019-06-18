@@ -3,8 +3,14 @@ const express = require('express');
 const router = express.Router();
 
 // App modules
-const receiptController = require('../controllers/receipt');
+const dashboardController = require('../controllers/dashboard');
 
-router.get('/', receiptController.getReceipts);
+router.get('/', dashboardController.getIndex);
+
+router.get('/receipts', dashboardController.getReceipts);
+
+router.get('/cart', dashboardController.getCart);
+
+router.get('/checkout', dashboardController.getCheckout);
 
 module.exports = router;
