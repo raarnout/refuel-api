@@ -19,8 +19,11 @@ app.set('views', path.join(rootDir, 'views'));
 // add middleware for all incomming request, parse body via body-parser package.
 app.use(bodyParser.urlencoded({extended: false}));
 
-// add static middleware from 'public' folder
+// add static middleware
 app.use(express.static(path.join(rootDir, 'public')));
+app.use('/js', express.static(path.join(rootDir, '../node_modules/jquery/dist')));
+app.use('/js', express.static(path.join(rootDir, '../node_modules/bootstrap/dist/js')));
+app.use('/css', express.static(path.join(rootDir, '../node_modules/bootstrap/dist/css')));
 
 /** 
  * import outsourced routes.
