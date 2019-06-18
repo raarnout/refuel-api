@@ -6,14 +6,31 @@
 
     <main>
         <% if(receipts.length > 0) { %>
-            <% for (let receipt of receipts) { %>
-                <article>
-                    <%= receipt.totalLiters %>
-                </article>
-            <% } %>
+          <table class="table table-bordered table-responsive-md table-striped text-center">
+            <thead>
+              <tr>
+                <th class="text-center">Ritafstand (km.)</th>
+                <th class="text-center">Volume (l.)</th>
+                <th class="text-center">Prijs/eenheid (€)</th>
+                <th class="text-center">Datum</th>
+                <th class="text-center">Tijdstip</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for (let receipt of receipts) { %>
+                <tr>
+                  <td class="pt-3-half" contenteditable="true"><%= receipt.tripDistance %></td>
+                  <td class="pt-3-half" contenteditable="true"><%= receipt.totalLiters %></td>
+                  <td class="pt-3-half" contenteditable="true"><%= receipt.pricePerLiter %></td>
+                  <td class="pt-3-half" contenteditable="true"><%= receipt.date %></td>
+                  <td class="pt-3-half" contenteditable="true"><%= receipt.time %></td>
+                </tr>
+              <% } %>
+            </tbody>
+          </table>
         <% } else { %>
             <h1>No receipts found</h1>
         <% } %>
-    </main>
-
+  </main>
+  
 <%- include('../includes/end.ejs') %>

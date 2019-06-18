@@ -13,8 +13,26 @@ const getReceiptsFromFile = callback => {
     });
 }
 
+const getTimeStemp = () => {
+    const today = new Date();
+    const day = String(today.getDate()).padStart(2, '0');
+    const month = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    const year = today.getFullYear();
+    const hour = today.getHours();
+    const minutes = today.getMinutes();
+
+    return {
+        date: `${day}-${month}-${year}`,
+        time: `${hour}:${minutes}`
+    }
+     
+}
+
 module.exports = class Receipt {
     constructor(tripDistance, totalLiters, pricePerLiter) {
+        const ts = getTimeStemp();
+        this.date = ts.date;
+        this.time = ts.time;
         this.totalLiters = totalLiters;
         this.tripDistance = tripDistance;
         this.pricePerLiter = pricePerLiter;
