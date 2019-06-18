@@ -8,6 +8,7 @@ exports.getAddReceipt = (req, res, next) => {
 };
 
 exports.postAddReceipt = (req, res, next) => {
+    console.log('post add receipt');
     const body = req.body;
     const receipt = new Receipt(body.tripDistance, body.totalLiters, body.pricePerLiter);
     receipt.save();
