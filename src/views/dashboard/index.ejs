@@ -1,10 +1,10 @@
 <%- include('../includes/head.ejs') %>
-</head>
 
 <body>
     <%- include('../includes/navigation.ejs') %>
 
     <main>
+    <div class="container">
         <% if(receipts.length > 0) { %>
           <table class="table table-bordered table-responsive-md table-striped text-center">
             <thead>
@@ -13,7 +13,6 @@
                 <th class="text-center">Volume (l.)</th>
                 <th class="text-center">Prijs/eenheid (€)</th>
                 <th class="text-center">Datum</th>
-                <th class="text-center">Tijdstip</th>
               </tr>
             </thead>
             <tbody>
@@ -23,7 +22,6 @@
                   <td class="pt-3-half" contenteditable="true"><%= receipt.totalLiters %></td>
                   <td class="pt-3-half" contenteditable="true"><%= receipt.pricePerLiter %></td>
                   <td class="pt-3-half" contenteditable="true"><%= receipt.date %></td>
-                  <td class="pt-3-half" contenteditable="true"><%= receipt.time %></td>
                 </tr>
               <% } %>
             </tbody>
@@ -31,6 +29,7 @@
         <% } else { %>
             <h1>No receipts found</h1>
         <% } %>
-  </main>
+        </div>
+    </main>
   
 <%- include('../includes/end.ejs') %>

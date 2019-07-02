@@ -1,0 +1,22 @@
+button:focus {
+  outline: none;
+}
+
+nav.navbar .container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (max-width: 575px) {
+  nav.navbar .container .navbar-collapse.position-absolute-sm  {
+    position: fixed;
+    top: 56px;
+    right: 0;
+    left: 0;
+    z-index: 9999;
+  }
+
+  nav.navbar .container .navbar-collapse.position-absolute-sm ul{
+    height: calc(100vh - 56px);
+  }
+}

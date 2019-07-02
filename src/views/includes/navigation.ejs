@@ -1,11 +1,29 @@
-<header class="main-header">
-    <nav class="main-header__nav">
-        <ul class="main-header__receipt-list">
-            <li class="main-header__receipt"><a href="/" class="<%= path === '/' ? 'active' : '' %>">Dashboard</a></li>
-            <li class="main-header__receipt"><a href="/receipts" class="<%= path === '/receipts' ? 'active' : '' %>">Receipts</a></li>
-            <li class="main-header__receipt"><a href="/cart" class="<%= path === '/cart' ? 'active' : '' %>">Cart</a></li>
-            <li class="main-header__receipt"><a href="/admin/add-receipt" class="<%= path === '/admin/add-receipt' ? 'active' : '' %>">Add Receipt</a></li>
-            <li class="main-header__receipt"><a href="/admin/receipts" class="<%= path === '/admin/receipts' ? 'active' : '' %>">Admin receipts</a></li>
-        </ul>
-    </nav>
+<header class="main-header top-bar mb-4">
+  <nav class="navbar navbar-expand-sm navbar-light bg-light ">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon animated-icon2"></span>
+        </button>
+
+        <div class="collapse navbar-collapse navbar-light bg-light w-100 position-absolute-sm" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item <%= path === '/' ? 'active' : '' %>">
+              <a class="nav-link px-3" href="/">Dashboard</a>
+            </li>
+            <li class="nav-item <%= path === '/receipts' ? 'active' : '' %>">
+              <a class="nav-link px-3" href="/receipts">Receipts</a>
+            </li>
+            <li class="nav-item <%= path === '/cart' ? 'active' : '' %>">
+              <a class="nav-link px-3" href="/cart">Cart</a>
+            </li>
+            <li class="nav-item <%= path === '/admin/add-receipt' ? 'active' : '' %>">
+              <a class="nav-link px-3" href="/admin/add-receipt">Add Receipt</a>
+            </li>
+            <li class="nav-item <%= path === '/admin/receipts' ? 'active' : '' %>">
+              <a class="nav-link px-3" href="/admin/receipts">Admin Receipts</a>
+            </li>
+          </ul>
+        </div>
+    </div>
+  </nav>
 </header>
