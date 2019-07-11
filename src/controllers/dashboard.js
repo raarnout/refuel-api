@@ -19,22 +19,3 @@ exports.getReceipts = (req, res, next) => {
         });
     })
 };
-
-exports.getCart = (req, res, next) => {
-    Receipt.fetchAll(receipts => {
-        res.render('dashboard/cart', {
-            path: '/cart',
-            pageTitle: 'Your Cart'
-        });
-    })
-};
-
-exports.getCheckout = (req, res, next) => {
-    Receipt.fetchAll(receipts => {
-        res.render('dashboard/checkout', {
-            path: '/checkout',
-            pageTitle: 'Checkout'
-        });
-    })
-};
-

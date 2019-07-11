@@ -40,6 +40,7 @@ module.exports = class Receipt {
 
     save() {
         getReceiptsFromFile(receipts => {
+            debugger;
             receipts.push(this);
             fs.writeFile(p, JSON.stringify(receipts), (error) => {
                 if (error) {
