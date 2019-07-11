@@ -1,0 +1,35 @@
+header {
+  top: 0;
+  z-index: 9999;
+}
+
+button:focus {
+  outline: none;
+}
+
+nav.navbar .container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (max-width: 575px) {
+  nav.navbar .container .navbar-collapse.position-absolute-sm {
+    position: fixed;
+    top: 56px;
+    right: 0;
+    left: 0;
+    z-index: 9999;
+  }
+
+  nav.navbar .container .navbar-collapse.position-absolute-sm ul {
+    height: calc(100vh - 56px);
+  }
+
+  nav.navbar .nav-item {
+    border-top: 1px solid #cecece;
+  }
+  
+  nav.navbar .nav-item:last-child {
+    border-bottom: 1px solid #cecece;
+  }
+}

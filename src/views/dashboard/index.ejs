@@ -4,32 +4,32 @@
     <%- include('../includes/navigation.ejs') %>
 
     <main>
-    <div class="container">
-        <% if(receipts.length > 0) { %>
-          <table class="table table-bordered table-responsive-md table-striped text-center">
-            <thead>
-              <tr>
-                <th class="text-center">Ritafstand (km.)</th>
-                <th class="text-center">Volume (l.)</th>
-                <th class="text-center">Prijs/eenheid (€)</th>
-                <th class="text-center">Datum</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% for (let receipt of receipts) { %>
+      <div class="container table-responsive">
+          <% if(receipts.length > 0) { %>
+            <table class="table table-bordered table-striped text-center">
+              <thead>
                 <tr>
-                  <td class="pt-3-half" contenteditable="true"><%= receipt.tripDistance %></td>
-                  <td class="pt-3-half" contenteditable="true"><%= receipt.totalLiters %></td>
-                  <td class="pt-3-half" contenteditable="true"><%= receipt.pricePerLiter %></td>
-                  <td class="pt-3-half" contenteditable="true"><%= receipt.date %></td>
+                  <th>Ritafstand (km.)</th>
+                  <th class="d-none d-sm-table-cell">Volume (l.)</th>
+                  <th class="d-none d-sm-table-cell">Prijs/eenheid (€)</th>
+                  <th>Datum</th>
                 </tr>
-              <% } %>
-            </tbody>
-          </table>
-        <% } else { %>
-            <h1>No receipts found</h1>
-        <% } %>
-        </div>
+              </thead>
+              <tbody>
+                <% for (let receipt of receipts) { %>
+                  <tr>
+                    <td><%= receipt.tripDistance %></td>
+                    <td class="d-none d-sm-table-cell"><%= receipt.totalLiters %></td>
+                    <td class="d-none d-sm-table-cell"><%= receipt.pricePerLiter %></td>
+                    <td><%= receipt.date %></td>
+                  </tr>
+                <% } %>
+              </tbody>
+            </table>
+          <% } else { %>
+              <h1>No receipts found</h1>
+          <% } %>
+          </div>
     </main>
   
 <%- include('../includes/end.ejs') %>

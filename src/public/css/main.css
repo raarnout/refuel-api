@@ -1,2 +1,7 @@
-@import url("overwrite-bootstrap.css");
+@import url("navigation.css");
 @import url("add-receipt.css");
+
+
+main {
+    margin-top: 5rem;
+}
