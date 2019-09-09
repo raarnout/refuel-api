@@ -13,7 +13,7 @@ const getReceiptsFromFile = callback => {
     });
 }
 
-const getTimeStemp = () => {
+const getTimeStamp = () => {
     const today = new Date();
     const day = String(today.getDate()).padStart(2, '0');
     const month = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -30,7 +30,7 @@ const getTimeStemp = () => {
 
 module.exports = class Receipt {
     constructor(tripDistance, totalLiters, pricePerLiter) {
-        const ts = getTimeStemp();
+        const ts = getTimeStamp();
         this.date = ts.date;
         this.time = ts.time;
         this.totalLiters = totalLiters;
@@ -40,7 +40,6 @@ module.exports = class Receipt {
 
     save() {
         getReceiptsFromFile(receipts => {
-            debugger;
             receipts.push(this);
             fs.writeFile(p, JSON.stringify(receipts), (error) => {
                 if (error) {

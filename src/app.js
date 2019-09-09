@@ -23,6 +23,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use('/js', express.static(path.join(rootDir, '../node_modules/jquery/dist')));
 app.use('/js', express.static(path.join(rootDir, '../node_modules/bootstrap/dist/js')));
 app.use('/css', express.static(path.join(rootDir, '../node_modules/bootstrap/dist/css')));
+app.use('/css', express.static(path.join(rootDir, '../node_modules/font-awesome/css')));
+app.use('/fonts', express.static(path.join(rootDir, '../node_modules/font-awesome/fonts')));
 app.use(express.static(path.join(rootDir, 'public')));
 
 /** 
