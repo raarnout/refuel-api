@@ -1,6 +1,8 @@
-@import url("navigation.css");
-@import url("add-receipt.css");
+@import url("03-generic/generic.css");
 
-main {
-    margin-top: 5rem;
-}
+@import url("04-elements/elements.css");
+
+@import url("06-components/navigation.css");
+@import url("06-components/add-receipt.css");
+
+@import url("07-utilities/background.css");

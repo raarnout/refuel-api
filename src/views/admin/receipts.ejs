@@ -22,8 +22,16 @@
                     <td class="d-none d-sm-table-cell"><%= receipt.totalLiters %></td>
                     <td class="d-none d-sm-table-cell"><%= receipt.pricePerLiter %></td>
                     <td><%= receipt.date %></td>
-                    <td><button class="fa fa-edit"></button></td>
-                    <td><button class="fa fa-remove"></button></td>
+                    <td>
+                        <form action="/admin/edit-receipt" method="POST">
+                          <button class="fa fa-edit border-0 bg-transparent text-primary" type="submit"></button>
+                        </form>
+                      </td>
+                    <td>
+                      <form action="/admin/delete-receipt" method="POST">
+                        <button class="fa fa-remove border-0 bg-transparent text-danger" type="submit"></button>
+                      </form>
+                    </td>
                   </tr>
                 <% } %>
               </tbody>
