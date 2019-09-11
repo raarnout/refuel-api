@@ -8,7 +8,7 @@ const errorController = require('./controllers/error');
 const app = express();
 
 const rootDir = require('./util/rootDir');
-const dashboardRoutes = require('./routes/dashboard');
+const receiptRoutes = require('./routes/receipts');
 const adminRoutes = require('./routes/admin');
 
 // set the global 'view enige' to 'ejs'
@@ -30,7 +30,8 @@ app.use(express.static(path.join(rootDir, 'public')));
 /** 
  * import outsourced routes.
 **/
-app.use('/', dashboardRoutes);
+app.use('/', receiptRoutes);
+
 app.use('/admin', adminRoutes);
 
 // handles error route

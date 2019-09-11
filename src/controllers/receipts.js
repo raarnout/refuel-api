@@ -1,19 +1,13 @@
 const Receipt = require('../models/receipt');
 
-exports.getIndex = (req, res, next) => {
-    Receipt.fetchAll(receipts => {
-        showReceipts(res, receipts, '/', 'Dashboard')
-    })
-};
-
 exports.getReceipts = (req, res, next) => {
     Receipt.fetchAll(receipts => {
-        showReceipts(res, receipts, '/receipts', 'All Receipts')
+        showReceipts(res, receipts, '/', 'Receipts');
     })
 };
 
 const showReceipts = (res, receipts, path, pageTitle ) => {
-    res.render('dashboard/receipt-list', {
+    res.render('receipts/index', {
         path,
         pageTitle,
         receipts

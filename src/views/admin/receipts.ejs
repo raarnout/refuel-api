@@ -24,12 +24,12 @@
                     <td><%= receipt.date %></td>
                     <td>
                         <form action="/admin/edit-receipt" method="POST">
-                          <button class="fa fa-edit border-0 bg-transparent text-primary" type="submit"></button>
+                          <a href="/admin/receipts/<%=receipt.id%>" class="fa fa-edit border-0 bg-transparent text-primary" type="submit"></a>
                         </form>
                       </td>
                     <td>
                       <form action="/admin/delete-receipt" method="POST">
-                        <button class="fa fa-remove border-0 bg-transparent text-danger" type="submit"></button>
+                        <a href="/admin/receipts/<%=receipt.id%>" class="fa fa-remove border-0 bg-transparent text-danger" type="submit"></a>
                       </form>
                     </td>
                   </tr>
