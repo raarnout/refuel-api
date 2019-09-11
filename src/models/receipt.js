@@ -28,6 +28,13 @@ const getTimeStamp = () => {
      
 }
 
+const getId = (receipts) => {
+    const newArray = receipts.slice();
+    newArray.sort((a, b) => (a.id > b.id) ? -1 : 1);
+    console.log(`new id = ${newArray[newArray.length - 1].id}`);
+    return newArray[0].id + 1; 
+}
+
 module.exports = class Receipt {
     constructor(tripDistance, totalLiters, pricePerLiter) {
         const ts = getTimeStamp();
@@ -40,6 +47,8 @@ module.exports = class Receipt {
 
     save() {
         getReceiptsFromFile(receipts => {
+            this.id = getId(receipts);
+            console.log(this.id);
             receipts.push(this);
             fs.writeFile(p, JSON.stringify(receipts), (error) => {
                 if (error) {
