@@ -14,6 +14,7 @@ const adminRoutes = require('./routes/admin');
 
 // set the global 'view enige' to 'ejs'
 app.set('view engine', 'ejs');
+
 // tell express that the views can be found in the 'views' folder.
 app.set('views', path.join(rootDir, 'views'));
 
@@ -37,7 +38,9 @@ app.use('/receipts', receiptRoutes);
 
 app.use('/admin', adminRoutes);
 
-// handles error route
+/** 
+ * handle routes which are not found.
+**/
 app.use(errorController.get404)
 
 app.listen(3000);
