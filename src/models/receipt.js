@@ -48,7 +48,6 @@ module.exports = class Receipt {
     save() {
         getReceiptsFromFile(receipts => {
             this.id = getId(receipts);
-            console.log(this.id);
             receipts.push(this);
             fs.writeFile(p, JSON.stringify(receipts), (error) => {
                 if (error) {
