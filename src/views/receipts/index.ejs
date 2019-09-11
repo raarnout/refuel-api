@@ -4,9 +4,9 @@
     <%- include('../includes/navigation.ejs') %>
 
     <main>
-      <div class="container table-responsive">
+      <div class="container table-responsive js-receipt-table receipt-table">
           <% if(receipts.length > 0) { %>
-            <table class="table table-bordered table-striped text-center">
+            <table class="table table-bordered table-striped text-center table-hover">
               <thead>
                 <tr>
                   <th>Ritafstand (km.)</th>
@@ -17,7 +17,7 @@
               </thead>
               <tbody>
                 <% for (let receipt of receipts) { %>
-                  <tr>
+                  <tr role="button" class="clickable-row" data-href="/receipts/<%= receipt.id %>">
                     <td><%= receipt.tripDistance %></td>
                     <td class="d-none d-sm-table-cell"><%= receipt.totalLiters %></td>
                     <td class="d-none d-sm-table-cell"><%= receipt.pricePerLiter %></td>

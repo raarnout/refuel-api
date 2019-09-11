@@ -6,3 +6,7 @@ header {
 main {
   margin-top: 5rem;
 }
+
+a[type="submit"] {
+  -webkit-appearance: none;
+}

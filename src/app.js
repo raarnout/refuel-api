@@ -8,6 +8,7 @@ const errorController = require('./controllers/error');
 const app = express();
 
 const rootDir = require('./util/rootDir');
+const mainRoute = require('./routes/main');
 const receiptRoutes = require('./routes/receipts');
 const adminRoutes = require('./routes/admin');
 
@@ -30,7 +31,9 @@ app.use(express.static(path.join(rootDir, 'public')));
 /** 
  * import outsourced routes.
 **/
-app.use('/', receiptRoutes);
+app.use('/', mainRoute);
+
+app.use('/receipts', receiptRoutes);
 
 app.use('/admin', adminRoutes);
 
